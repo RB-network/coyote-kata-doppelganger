@@ -11,8 +11,13 @@ test('should not throw when authorized', (t) => {
 
   // Perform addition
   const result = calculator.add(3, 5);
+  t.equal(result,8,'Add 3 and 5 shloud be 8');
 
   // Assert that addition is performed
-  t.is(result, 8);
+  try{
+    t.equal(result,8,'Add 3 and 5 shloud be 8');
+  }catch (error) {
+    throw new Error('Notification assertion failed for Alice');
+  }
   t.end()
 })
